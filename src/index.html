@@ -7,8 +7,26 @@
   </head>
   <body>
     <div id="root">
-      <h1>Hola mundo!</h1>
-    </div>
+      <br>
+      <br>
+      <br>
+    <center>
+      <b><h1>Hola <span style="color: blue;"> Blue<span style="color: yellow;">Margaritas</span></h1></b>
+      
+      <div id = "accessButtonsSection">Elige una opción: 
+        <br>
+        <br>
+        <button id="newUserButton" onclick="showNewUser()">Soy nueva</button>
+        <button id="registeredUserButton" onclick="showRegisteredUser()">Ya tengo cuenta</button>
+      </div>
+      <div id="messageSection">Escribe tu mensaje:<br> <textarea rows="10" cols="50" id="messageInput"></textarea></div>
+      <div id="offsetNumber">Escribe un número de desplazamiento: <input id="offsetInput" type=offsetTextbox></div>
+      <div id="enterUserSection">Usuario: <input id="userInput" type="text"></div>
+      <div id="enterPasswordSection">Contraseña: <input id="passwordInput" type="text"></div>
+      <div> <button id="cipherButton" onclick="cipherMessage()">Codificar</button></div>
+      <div id="messageOutput"></div>
+    </center>
+      <br>
     <script src="cipher.js"></script>
     <script src="index.js"></script>
   </body>
