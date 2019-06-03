@@ -16,15 +16,19 @@
       <div id = "accessButtonsSection">Elige una opción: 
         <br>
         <br>
-        <button id="newUserButton" onclick="showNewUser()">Soy nueva</button>
-        <button id="registeredUserButton" onclick="showRegisteredUser()">Ya tengo cuenta</button>
+        <button id="cipherButton" onclick="showCipherWindow()">Cifrar</button>
+        <button id="decipherButton" onclick="showDecipherWindow()">Descifrar</button>
       </div>
-      <div id="messageSection">Escribe tu mensaje:<br> <textarea rows="10" cols="50" id="messageInput"></textarea></div>
+<!--Botones e inputs de Ventana de Cifrado-->
+      <div id="messageSection">Escribe tu mensaje:<br><textarea rows="10" cols="50" id="messageInput" onkeyup="messageInUppercase()"></textarea></div>
       <div id="offsetNumber">Escribe un número de desplazamiento: <input id="offsetInput" type=offsetTextbox></div>
-      <div id="enterUserSection">Usuario: <input id="userInput" type="text"></div>
-      <div id="enterPasswordSection">Contraseña: <input id="passwordInput" type="text"></div>
-      <div> <button id="cipherButton" onclick="cipherMessage()">Codificar</button></div>
+      <div> <button id="cipherButton2" onclick="cipherMessage()">Cifrar</button></div>
       <div id="messageOutput"></div>
+<!--Botones e inputs de Ventana de Descifrado-->
+      <div id="messageSection2">Escribe tu mensaje:<br><textarea rows="10" cols="50" id="messageInput2" onkeyup="messageInUppercase2()"></textarea></div>
+      <div id="offsetNumber2">Escribe un número de desplazamiento: <input id="offsetInput2" type=offsetTextbox2></div>
+      <div> <button id="decipherButton2" onclick="decipherMessage2()">Descifrar</button></div>
+      <div id="messageOutput2"></div>
     </center>
       <br>
     <script src="cipher.js"></script>
