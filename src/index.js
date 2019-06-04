@@ -40,7 +40,17 @@ function cipherMessage() {
     let currentLetter = message[i];
     let numberLetter = abecedary[currentLetter];
     let numberWithCipher = (numberLetter + parseInt(offsetInput.value)) % 26;
-    let newLetter = valueLetters[numberWithCipher];
+    //let newLetter = valueLetters[numberWithCipher];
+    let newLetter; 
+    if (numberWithCipher >= 0) {
+      newLetter = valueLetters[numberWithCipher];
+    } else {
+      numberWithCipher = 26 - (numberLetter - parseInt(offsetInput.value)) % 26;
+      newLetter = valueLetters[numberWithCipher];
+    }
+
+
+
     messageOutput.innerHTML += newLetter;
     console.log(currentLetter + " " + numberLetter + " " + numberWithCipher + " " + newLetter);
   };
@@ -80,8 +90,15 @@ function decipherMessage2() {
   for(i=0;i <= message2.length-1;i++) {
     let currentLetter2 = message2[i];
     let numberLetter2 = abecedary2[currentLetter2];
-    let numberWithCipher2 = (26 - numberLetter2) - (parseInt(offsetInput2.value));
-    let newLetter2 = valueLetters2[numberWithCipher2];
+    let numberWithCipher2 = (numberLetter2 - parseInt(offsetInput2.value)) % -26;
+   
+    let newLetter2; 
+    if (numberWithCipher2 >= 0) {
+      newLetter2 = valueLetters2[numberWithCipher2];
+    } else {
+      numberWithCipher2 = 26 + (numberLetter2 - parseInt(offsetInput2.value)) % 26;
+      newLetter2 = valueLetters2[numberWithCipher2];
+    }
     messageOutput2.innerHTML += newLetter2;
     console.log(currentLetter2 + " " + numberLetter2 + " " + numberWithCipher2 + " " + newLetter2);
   };

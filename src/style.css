@@ -1,0 +1,46 @@
+.portada{
+    background: url(images/bg-index.png) no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100% ;
+    text-align: center;
+    }
+
+#demoFont {
+        font-family: Georgia, serif;
+        font-size: 25px;
+        letter-spacing: 2px;
+        word-spacing: 2px;
+        color: #000000;
+        font-weight: 700;
+        text-decoration: none;
+        font-style: italic;
+        font-variant: small-caps;
+        text-transform: capitalize;
+        }
+#cipherButton {
+    text-shadow: 4px 3px 0px rgb(199, 198, 198), -22px -2px 20px rgba(34,99,15,0);
+    color: rgb(0, 0, 0);
+    background: #A1BAFF;
+    font-weight: 700;
+    font-size: 25px;
+    font-family:  Georgia, serif;
+    font-style: italic;
+    text-transform: capitalize;
+    font-variant: small-caps;
+        }
+
+#decipherButton {
+    text-shadow: 4px 3px 0px rgb(199, 198, 198), -22px -2px 20px rgba(34,99,15,0);
+    color: rgb(0, 0, 0);
+    background: #A1BAFF;
+    font-weight: 700;
+    font-size: 25px;
+    font-family:  Georgia, serif;
+    font-style: italic;
+    text-transform: capitalize;
+    font-variant: small-caps;
+        }
