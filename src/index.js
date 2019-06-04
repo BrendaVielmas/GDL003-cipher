@@ -80,7 +80,7 @@ function decipherMessage2() {
   for(i=0;i <= message2.length-1;i++) {
     let currentLetter2 = message2[i];
     let numberLetter2 = abecedary2[currentLetter2];
-    let numberWithCipher2 = (numberLetter2 - parseInt(offsetInput2.value)) % 26 +26;
+    let numberWithCipher2 = (26 - numberLetter2) - (parseInt(offsetInput2.value));
     let newLetter2 = valueLetters2[numberWithCipher2];
     messageOutput2.innerHTML += newLetter2;
     console.log(currentLetter2 + " " + numberLetter2 + " " + numberWithCipher2 + " " + newLetter2);
