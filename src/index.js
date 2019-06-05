@@ -4,7 +4,9 @@ cipherButton2.style.display = "none";
 decipherButton2.style.display = "none";
 offsetNumber.style.display = "none";
 offsetNumber2.style.display ="none";
+
 //Funciones de ventana de Cifrado
+//Muestra la primer ventana donde está la opción de cifrar o descifrar
 function showCipherWindow(){
   accessButtonsSection.style.display = "none";
   messageSection.style.display = "block";
@@ -12,12 +14,15 @@ function showCipherWindow(){
   offsetNumber.style.display = "block";
   cipherButton2.style.display = "block";
 };
+//Hace el mensaje en automático a mayusculas para poderlo cifrar o decifrar
 function messageInUppercase() {
   let lettersInUppercase = document.getElementById("messageInput");
   lettersInUppercase.value = lettersInUppercase.value.toUpperCase();
 };
+//Transforma el mensaje de un string a un número para poder realizar las fórmulas y lo regresa a ser letra
 function cipherMessage() {
   let message = messageInput.value;
+  //Se le da valor a cada letra
   let abecedary = {
     "A":0,  "B":1,  "C":2,  "D":3,
     "E":4,  "F":5,  "G":6,  "H":7,
@@ -26,6 +31,7 @@ function cipherMessage() {
     "Q":16, "R":17, "S":18, "T":19,
     "U":20, "V":21, "W":22, "X":23,
     "Y":24, "Z":25};
+    //Se le devuelve la letra a cada valor. 
   let valueLetters = {
     0:"A",  1:"B",  2:"C",  3:"D",
     4:"E",  5:"F",  6:"G",  7:"H",
@@ -36,23 +42,38 @@ function cipherMessage() {
     24:"Y", 25:"Z"};
 
     messageOutput.innerHTML = "";
+    newLetter = "";
+    /*Inicio: iteración en 0, condición(se cumple o no), codigo(resultado) si cumple->incremento, 
+    se realiza de nuevo la condición, codigo(resultado) si cumple->incremento, etc.*/
   for(i=0;i <= message.length-1;i++) {
-    let currentLetter = message[i];
-    let numberLetter = abecedary[currentLetter];
-    let numberWithCipher = (numberLetter + parseInt(offsetInput.value)) % 26;
-    //let newLetter = valueLetters[numberWithCipher];
-    let newLetter; 
+    //Letra actual es igual al mensaje iterado
+    let currentLetter = message[i].charCodeAt(0);
+    let numberWithCipher = 255 - (currentLetter - parseInt(offsetInput.value)) % 255;
+    newLetter += String.fromCharCode(numberWithCipher);
+
+    console.log (currentLetter + " " + numberWithCipher + " " + newLetter);
+    //Numero de la letra es igual al abecedario por la letra actual
+   //ESTO LO HICE TEXTO let numberLetter = abecedary[currentLetter];
+    /*El numero de la letra con cipher es igual al numero de la letra más el desplazamiento 
+    agregado(se hace de string a number) si es mayor a 26 el desplazamiento, se suma el residuo de 26*/
+    //ESTO LO HICE TEXTO let numberWithCipher = (numberLetter + parseInt(offsetInput.value)) % 26;
+    /*La nueva letra... 1. Si el numero de la letra con cipher es mayor o igual a 0, es igual a valor de la letra
+    por el numero de la letra con cipher.
+    2. Si no se cumple 1., la nueva letra es igual a valor de la letra por el numero de la letra con cipher. 
+    PERO el numero de la letra con cipher es igual a 26 menos (el numero de la letra menos
+      el desplazamiento) si es mayor a 26 se resta el residuo de 26. */
+    //El "26-" hace que cifre en número negativo
+    /* ESTO LO HICE TEXTO let newLetter; 
     if (numberWithCipher >= 0) {
       newLetter = valueLetters[numberWithCipher];
     } else {
       numberWithCipher = 26 - (numberLetter - parseInt(offsetInput.value)) % 26;
       newLetter = valueLetters[numberWithCipher];
-    }
-
-
-
-    messageOutput.innerHTML += newLetter;
-    console.log(currentLetter + " " + numberLetter + " " + numberWithCipher + " " + newLetter);
+    }*/
+//Arroja el mensaje 
+    messageOutput.innerHTML = newLetter;
+//Esto es sólo para ver qué arroja la consola
+    // ESTO LO HICE TEXTO console.log(currentLetter + " " + numberLetter + " " + numberWithCipher + " " + newLetter);
   };
 }
 //Funciones de ventana de Descifrado
