@@ -7,30 +7,31 @@
     <title>Caesar Cipher</title>
     <link rel="stylesheet" href="style.css" />
   </head>
- 
+ <div id = "paginaPrincipal">
+
   <body>
-    <div id="root">
-      <br>
-      <br>
-      <br>
+      <img class ="primerImagen" src="https://cdn.pixabay.com/photo/2017/02/26/04/02/woman-2099466_960_720.jpg">
+
+
+
+
     <center>
     
-    <div id="demoFont">
-      <b><h1> <span style="color: blue;"> Blue<span style="color: yellow;">Margaritas</span></h1></b>
+    <div id="titulo">
+      <h1>BANCA EN LINEA</h1>
     </div>
       <div id = "accessButtonsSection">Elige una opción: 
-        <br>
         <br>
         <button id="cipherButton" onclick="showCipherWindow()">Cifrar</button>
         <button id="decipherButton" onclick="showDecipherWindow()">Descifrar</button>
       </div>
 <!--Botones e inputs de Ventana de Cifrado-->
-      <div id="messageSection">Escribe tu mensaje:<br><textarea rows="10" cols="50" id="messageInput" onkeyup="messageInUppercase()"></textarea></div>
+      <div id="messageSection">Escribe tu mensaje:<textarea rows="10" cols="50" id="messageInput"></textarea></div>
       <div id="offsetNumber">Escribe un número de desplazamiento: <input id="offsetInput" type=offsetTextbox></div>
       <div> <button id="cipherButton2" onclick="cipherMessage()">Cifrar</button></div>
       <div id="messageOutput"></div>
 <!--Botones e inputs de Ventana de Descifrado-->
-      <div id="messageSection2">Escribe tu mensaje:<br><textarea rows="10" cols="50" id="messageInput2" onkeyup="messageInUppercase2()"></textarea></div>
+      <div id="messageSection2">Escribe tu mensaje:<textarea rows="10" cols="50" id="messageInput2"></textarea></div>
       <div id="offsetNumber2">Escribe un número de desplazamiento: <input id="offsetInput2" type=offsetTextbox2></div>
       <div> <button id="decipherButton2" onclick="decipherMessage2()">Descifrar</button></div>
       <div id="messageOutput2"></div>
@@ -40,5 +41,5 @@
     <script src="index.js"></script>
   
   </body>
-
+</div>
 </html>
