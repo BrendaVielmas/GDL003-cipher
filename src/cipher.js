@@ -10,6 +10,7 @@ offsetNumber2.style.display ="none";
 
 //Funciones de ventana de Cifrado
 //Muestra la primer ventana donde está la opción de cifrar o descifrar
+
 function showCipherWindow(){
   accessButtonsSection.style.display = "none";
   messageSection.style.display = "block";
@@ -17,6 +18,7 @@ function showCipherWindow(){
   offsetNumber.style.display = "block";
   cipherButton2.style.display = "block";
 };
+document.getElementById("cipherButton").addEventListener("click",showCipherWindow);
 
 //Transforma el mensaje de un string a un número para poder realizar las fórmulas y lo regresa a ser letra
 function cipherMessage() {
@@ -43,14 +45,13 @@ function cipherMessage() {
       numberWithCipher = 256 - (currentLetter - parseInt(offsetInput.value)) % 256;
       newLetter += String.fromCharCode(numberWithCipher);
       }
-   
     //Arroja el mensaje 
     messageOutput.innerHTML = newLetter;
     //Esto es sólo para ver qué arroja la consola
     console.log (currentLetter + " " + numberWithCipher + " " + newLetter);
   };
 }
-
+document.getElementById("cipherButton2").addEventListener("click",cipherMessage);
 /*Funciones de ventana de Descifrado
 Muestra la primer ventana donde está la opción de cifrar o descifrar*/
 function showDecipherWindow(){
@@ -60,7 +61,7 @@ function showDecipherWindow(){
   decipherButton2.style.display = "block";
   offsetNumber2.style.display = "block";
 };
-
+document.getElementById("decipherButton").addEventListener("click",showDecipherWindow);
 //Transforma el mensaje de un string a un número para poder realizar las fórmulas y lo regresa a ser letra
 function decipherMessage2() {
   let message2 = messageInput2.value;
@@ -93,3 +94,4 @@ function decipherMessage2() {
     console.log (currentLetter2 + " " + numberWithCipher2 + " " + newLetter2);
   };
 }
+document.getElementById("decipherButton2").addEventListener("click",decipherMessage2);
