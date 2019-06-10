@@ -8,38 +8,31 @@
     <link rel="stylesheet" href="style.css" />
   </head>
  <div id = "paginaPrincipal">
-
   <body>
-      <img class ="primerImagen" src="https://cdn.pixabay.com/photo/2017/02/26/04/02/woman-2099466_960_720.jpg">
+      <img class ="primerImagen" src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/10684215/VRG_ILLO_2411_Google_Messaging_3.gif">
 
-
-
-
-    <center>
-    
     <div id="titulo">
-      <h1>BANCA EN LINEA</h1>
+    <img class ="segundaImagen" src="https://www.fingo.co.za/wp-content/uploads/2017/07/fin-payment-icon.gif">
+    <h1>BANCA EN LINEA</h1>
     </div>
-      <div id = "accessButtonsSection">Elige una opción: 
-        <br>
+      <div id= "accessButtonsSection">Elige una opción:<br>
         <input type="button" id="cipherButton" value= "Cifrar"></input>
         <input type="button" id="decipherButton" value="Descifrar"></input>
       </div>
 <!--Botones e inputs de Ventana de Cifrado-->
-      <div id="offsetNumber">Escribe un número de desplazamiento: <input id="offsetInput" type=offsetTextbox></div>
-      <div id="messageSection">Escribe tu mensaje:<br><textarea rows="10" cols="50" id="messageInput"></textarea></div>
+      <div id="offsetNumber" class="hola">Escribe un número de desplazamiento: <input id="offsetInput" type=offsetTextbox></div>
+      <div id="messageSection" class="hola">Escribe tu mensaje:<textarea rows="6" cols="75" id="messageInput">Tipo de cuenta(Débito o crédito):&#10;Banco destino:&#10;Número de tarjeta/cuenta:&#10;Beneficiario:&#10;Importe:&#10;Concepto:</textarea></div>
       <div><input type="button" id="cipherButton2" value="Cifrar"></input></div>
-      <div id="messageOutput"></div>
+      <div id="messageOutArea" class="hola">Tu mensaje cifrado es:<textarea rows="6" cols="75" id="messageOutput"></textarea></div>
+    
 <!--Botones e inputs de Ventana de Descifrado-->
-      <div id="offsetNumber2">Escribe un número de desplazamiento: <input id="offsetInput2" type=offsetTextbox2></div>
-      <div id="messageSection2">Escribe tu mensaje:<br><textarea rows="10" cols="50" id="messageInput2">Nombre:</textarea></div>
+      <div id="offsetNumber2" class="hola">Escribe un número de desplazamiento: <input id="offsetInput2" type=offsetTextbox2></div>
+      <div id="messageSection2" class="hola">Escribe tu mensaje:<textarea rows="6" cols="75" id="messageInput2"></textarea></div>
       <div><input type="button" id="decipherButton2" value="Descifrar"></input></div>
-      <div id="messageOutput2"></div>
-    </center>
-      <br>
+      <div id="messageOutArea2" class="hola">Tu mensaje descifrado es:<textarea rows="6" cols="75" id="messageOutput2"></textarea></div>
+    
     <script src="cipher.js"></script>
     <script src="index.js"></script>
-  
   </body>
 </div>
 </html>
