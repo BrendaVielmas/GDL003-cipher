@@ -1,15 +1,7 @@
 window.cipher = {
-  // ... 
-  "hola": function(){
-    console.log("holaaaaaa")
-  },
-  mundo: function(){
-    console.log("undoooo")
-  }
-};
-
 //Transforma el mensaje de un string a un número para poder realizar las fórmulas y lo regresa a ser letra
-function cipherMessage() {
+//function cipherMessage() {
+cipherMessage : () => {
   messageOutArea.style.display ="block";
   let message = messageInput.value;
   messageOutput.innerHTML = "";
@@ -38,13 +30,12 @@ function cipherMessage() {
     messageOutput.innerHTML = newLetter;
     //Esto es sólo para ver qué arroja la consola
     console.log (currentLetter + " " + numberWithCipher + " " + newLetter);
-  };
-}
-
-
+  }
+},
 
 //Transforma el mensaje de un string a un número para poder realizar las fórmulas y lo regresa a ser letra
-function decipherMessage2() {
+//function decipherMessage2() {
+decipherMessage2 : () => {
   messageOutArea2.style.display ="block";
   let message2 = messageInput2.value;
   messageOutput2.innerHTML = "";
@@ -74,5 +65,6 @@ function decipherMessage2() {
     messageOutput2.innerHTML = newLetter2;
     //Esto es sólo para ver qué arroja la consola
     console.log (currentLetter2 + " " + numberWithCipher2 + " " + newLetter2);
-  };
-}
+  }
+  }
+};
