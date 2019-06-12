@@ -6,12 +6,14 @@
     }
 img.primerImagen { 
     width: 600px; height: 500px;
-    border-top: 75px solid #337F96;
-    border-bottom: 200px solid #337F96;
+    border-top: 100px solid #337F96;
+    border-bottom: 100px solid #337F96;
     border-left: 50px solid #337F96;
    }
 img.segundaImagen { 
     width: 100px; height: 100px;
+    border-top: 50px solid #337F96;
+    border-bottom: 50px solid #337F96;
     }
 pre, h1 {
     font-size: 1.5em;
@@ -29,7 +31,7 @@ pre, h1 {
     font-style: normal;
     font-variant: small-caps;
     text-transform: capitalize;
-    border-top: 100px solid;
+    border-top: 50px solid;
     }
 #accessButtonsSection {
     font-size: 1.5em;
@@ -61,16 +63,21 @@ pre, h1 {
         font-size: 1.5em;
         color: rgb(255, 255, 255);
         background-color: #337F96;
-        margin: 75px auto;
+        margin: 50px auto;
+        border-left: 50px solid #337F96;
         }
     #cipherButton2,#decipherButton2 {
         color: #337F96;
         background: #F5FFFC;
-        margin: 50px auto;
+        margin: 30px auto;
         font-size: 25px;
         letter-spacing: 2px;
         font-weight: 700;
         border-right: 100px solid;
         border-left: 100px solid;
         }
-    
+    #messageOutput2, #messageOutput, #messageInput2, #messageInput {
+        border-right: 100px solid #337F96;
+        border-left: 100px solid #337F96;
+        margin: 50px solid #337F96;
+    }

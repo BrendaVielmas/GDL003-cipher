@@ -13,8 +13,12 @@ window.cipher = {
       let numberWithCipher ="";
       if (currentLetter >= 65 && currentLetter <= 90) {
         numberWithCipher = (65)+((currentLetter + offset)-65) % 26;
-      } else {
+      }
+      if (currentLetter >= 97 && currentLetter <= 122) {
         numberWithCipher = (97)+((currentLetter + offset)-97) % 26;
+      }
+      if (currentLetter < 65 || currentLetter > 90 && currentLetter < 97 || currentLetter > 122) {
+        numberWithCipher = currentLetter;
       }
       /*Si numero de la letra con desplazamiento es mayor o igual a 0, la nueva letra  es igual a devolver el 
       numero a caracter; Si no, la nueva letra  es igual a devolver el 
@@ -50,10 +54,13 @@ window.cipher = {
       let numberWithCipher2 ="";
       if (currentLetter2 >= 65 && currentLetter2 <= 90) {
         numberWithCipher2 = (65)+((currentLetter2 - offset)+65) % -26;
-      } else {
+      }
+      if (currentLetter2 >= 97 && currentLetter2 <= 122) {
         numberWithCipher2 = (97)+((currentLetter2 + offset)+97) % -26;
       }
-
+      if (currentLetter2 < 65 || currentLetter2 > 90 && currentLetter2 < 97|| currentLetter2 > 122) {
+        numberWithCipher2 = currentLetter2;
+      }
        /*Si numero de la letra con desplazamiento es mayor o igual a 0, la nueva letra  es igual a devolver el 
       numero a caracter; Si no, la nueva letra  es igual a devolver el 
       numero a caracter, PERO el numero de la letra con desplazamiento  es igual a 256 +(letra actual - desplazamiento) % 256
