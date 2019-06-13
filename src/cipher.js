@@ -12,24 +12,30 @@ window.cipher = {
       agregado. Si es mayor a 256 el desplazamiento, se suma el residuo de 256*/
       let numberWithCipher ="";
       if (currentLetter >= 65 && currentLetter <= 90) {
-        numberWithCipher = (65)+((currentLetter + offset)-65) % 26;
+        offset %= 26;
+        numberWithCipher = currentLetter + offset;
+        if (numberWithCipher < 65) {
+          numberWithCipher += 26;
+        }
+        if (numberWithCipher > 90) {
+          numberWithCipher -= 26;
+        }
       }
       if (currentLetter >= 97 && currentLetter <= 122) {
-        numberWithCipher = (97)+((currentLetter + offset)-97) % 26;
+         offset %= 26;
+        numberWithCipher = currentLetter + offset;
+        if (numberWithCipher < 97) { 
+          numberWithCipher += 26;
+        }
+        if (numberWithCipher > 122) {
+          numberWithCipher -= 26;
+        }
       }
       if (currentLetter < 65 || currentLetter > 90 && currentLetter < 97 || currentLetter > 122) {
         numberWithCipher = currentLetter;
       }
-      /*Si numero de la letra con desplazamiento es mayor o igual a 0, la nueva letra  es igual a devolver el 
-      numero a caracter; Si no, la nueva letra  es igual a devolver el 
-      numero a caracter, PERO el numero de la letra con desplazamiento  es igual a 256 -(letra actual - desplazamiento) % 256
-      El "256-" hace que cifre en número negativo*/
-     /*if (numberWithCipher >= 0) {
-        newLetter = String.fromCharCode(numberWithCipher);
-      } else {
-        numberWithCipher = 256 - (currentLetter - offset) % 256;*/
-        newLetter = String.fromCharCode(numberWithCipher);
-      //}
+      //la nueva letra  es igual a devolver el numero a caracter
+      newLetter = String.fromCharCode(numberWithCipher);
       //Arroja el mensaje 
       encodedMessage += newLetter;
       //Esto es sólo para ver qué arroja la consola
@@ -41,40 +47,47 @@ window.cipher = {
 
   //Pedazo de Decifrado
   decode : (offset, message) => {
-    let newLetter2 = "";
+    let newLetter = "";
+    offset= -offset;
     /*Inicio: iteración en 0, condición(se cumple o no), codigo(resultado) si cumple->incremento, 
     se realiza de nuevo la condición, codigo(resultado) si cumple->incremento, etc.*/
     let decodedMessage ="";
     for(let i=0;i <= message.length-1;i++) {
       //Letra actual es igual al mensaje iterado
-      let currentLetter2 = message.charCodeAt(i);
+      let currentLetter = message.charCodeAt(i);
       /*El numero de la letra con cipher es igual al numero de la letra más el desplazamiento 
       agregado. Si es mayor a 256 el desplazamiento, se suma el residuo de 256*/
 
-      let numberWithCipher2 ="";
-      if (currentLetter2 >= 65 && currentLetter2 <= 90) {
-        numberWithCipher2 = (65)+((currentLetter2 - offset)+65) % -26;
+      let numberWithCipher ="";
+      if (currentLetter >= 65 && currentLetter <= 90) {
+        offset %= 26;
+        numberWithCipher = currentLetter + offset;
+        if (numberWithCipher < 65) {
+          numberWithCipher += 26;
+        }
+        if (numberWithCipher > 90) {
+          numberWithCipher -= 26;
+        }
       }
-      if (currentLetter2 >= 97 && currentLetter2 <= 122) {
-        numberWithCipher2 = (97)+((currentLetter2 + offset)+97) % -26;
+      if (currentLetter >= 97 && currentLetter <= 122) {
+         offset %= 26;
+        numberWithCipher = currentLetter + offset;
+        if (numberWithCipher < 97) { 
+        numberWithCipher += 26;
+        }
+        if (numberWithCipher > 122) {
+          numberWithCipher -= 26;
+        }
       }
-      if (currentLetter2 < 65 || currentLetter2 > 90 && currentLetter2 < 97|| currentLetter2 > 122) {
-        numberWithCipher2 = currentLetter2;
+      if (currentLetter < 65 || currentLetter > 90 && currentLetter < 97|| currentLetter > 122) {
+        numberWithCipher = currentLetter;
       }
-       /*Si numero de la letra con desplazamiento es mayor o igual a 0, la nueva letra  es igual a devolver el 
-      numero a caracter; Si no, la nueva letra  es igual a devolver el 
-      numero a caracter, PERO el numero de la letra con desplazamiento  es igual a 256 +(letra actual - desplazamiento) % 256
-      El "256+" hace que cifre en número negativo*/
-      /*if (numberWithCipher2 >= 0) {
-        newLetter2 = String.fromCharCode(numberWithCipher2);
-      } else {
-        numberWithCipher2 = 256 + (currentLetter2 - offset) % 256;*/
-        newLetter2 = String.fromCharCode(numberWithCipher2);
-      //}
+      //la nueva letra  es igual a devolver el numero a caracter
+      newLetter = String.fromCharCode(numberWithCipher);
       //Arroja el mensaje 
-      decodedMessage += newLetter2;
+      decodedMessage += newLetter;
       //Esto es sólo para ver qué arroja la consola
-      console.log (currentLetter2 + " " + numberWithCipher2 + " " + newLetter2);
+      console.log (currentLetter + " " + numberWithCipher + " " + newLetter);
     }
     return decodedMessage;
   }

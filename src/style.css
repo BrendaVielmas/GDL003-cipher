@@ -12,8 +12,6 @@ img.primerImagen {
    }
 img.segundaImagen { 
     width: 100px; height: 100px;
-    border-top: 50px solid #337F96;
-    border-bottom: 50px solid #337F96;
     }
 pre, h1 {
     font-size: 1.5em;
@@ -77,7 +75,7 @@ pre, h1 {
         border-left: 100px solid;
         }
     #messageOutput2, #messageOutput, #messageInput2, #messageInput {
-        border-right: 100px solid #337F96;
-        border-left: 100px solid #337F96;
+        border-right: 10px solid #337F96;
+        border-left: 10px solid #337F96;
         margin: 50px solid #337F96;
     }
