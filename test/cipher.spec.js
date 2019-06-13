@@ -13,6 +13,10 @@ describe('cipher', () => {
     it('debería retornar "HIJKLMNOPQRSTUVWXYZABCDEFG" para "ABCDEFGHIJKLMNOPQRSTUVWXYZ" con offset 33', () => {
       assert.equal(cipher.encode(33, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"), "HIJKLMNOPQRSTUVWXYZABCDEFG");
     });
+    // Hacker edition encode offset negativo mayúsculas
+    it('debería retornar "TUVWXYZABCDEFGHIJKLMNOPQRS" para "ABCDEFGHIJKLMNOPQRSTUVWXYZ" con offset -33', () => {
+      assert.equal(cipher.encode(-33, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"), "TUVWXYZABCDEFGHIJKLMNOPQRS");
+    });
     // Hacker edition
     //
     // Si decides agregar soporte para minúsculas descomenta el test a
@@ -21,7 +25,10 @@ describe('cipher', () => {
     it('debería retornar "hijklmnopqrstuvwxyzabcdefg"  para "abcdefghijklmnopqrstuvwxyz" con offset 33', () => {
       assert.equal(cipher.encode(33, 'abcdefghijklmnopqrstuvwxyz'), 'hijklmnopqrstuvwxyzabcdefg');
     });
-
+     // Hacker edition encode offset negativo minúsuculas
+     it('debería retornar "tuvwxyzabcdefghijklmnopqrs"  para "abcdefghijklmnopqrstuvwxyz" con offset -33', () => {
+      assert.equal(cipher.encode(-33, 'abcdefghijklmnopqrstuvwxyz'), 'tuvwxyzabcdefghijklmnopqrs');
+    });
     //
     // Hacker edition
     //
@@ -42,6 +49,10 @@ describe('cipher', () => {
     it('debería retornar "ABCDEFGHIJKLMNOPQRSTUVWXYZ" para "HIJKLMNOPQRSTUVWXYZABCDEFG" con offset 33', () => {
       assert.equal(cipher.decode(33, "HIJKLMNOPQRSTUVWXYZABCDEFG"), "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     });
+    // Hacker edition decode offset negativo mayúsculas
+    it('debería retornar "ABCDEFGHIJKLMNOPQRSTUVWXYZ" para "TUVWXYZABCDEFGHIJKLMNOPQRS" con offset -33', () => {
+      assert.equal(cipher.decode(-33, "TUVWXYZABCDEFGHIJKLMNOPQRS"), "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    });
     //
     // Hacker edition
     //
@@ -51,7 +62,10 @@ describe('cipher', () => {
     it('debería retornar "abcdefghijklmnopqrstuvwxyz" para "hijklmnopqrstuvwxyzabcdefg" con offset 33', () => {
       assert.equal(cipher.decode(33, 'hijklmnopqrstuvwxyzabcdefg'), 'abcdefghijklmnopqrstuvwxyz');
     });
-
+    // Hacker edition decode offset negativo minúsculas
+    it('debería retornar "abcdefghijklmnopqrstuvwxyz" para "tuvwxyzabcdefghijklmnopqrs" con offset -33', () => {
+      assert.equal(cipher.decode(-33, 'tuvwxyzabcdefghijklmnopqrs'), 'abcdefghijklmnopqrstuvwxyz');
+    });
     //
     // Hacker edition
     //

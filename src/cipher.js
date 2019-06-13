@@ -11,6 +11,7 @@ window.cipher = {
       /*El numero de la letra con cipher es igual al numero de la letra más el desplazamiento 
       agregado. Si es mayor a 256 el desplazamiento, se suma el residuo de 256*/
       let numberWithCipher ="";
+      
       if (currentLetter >= 65 && currentLetter <= 90) {
         offset %= 26;
         numberWithCipher = currentLetter + offset;
@@ -31,7 +32,17 @@ window.cipher = {
           numberWithCipher -= 26;
         }
       }
-      if (currentLetter < 65 || currentLetter > 90 && currentLetter < 97 || currentLetter > 122) {
+      if (currentLetter >= 48 && currentLetter <= 57) {
+        offset %= 10;
+       numberWithCipher = currentLetter + offset;
+       if (numberWithCipher < 48) { 
+         numberWithCipher += 10;
+       }
+       if (numberWithCipher > 57) {
+         numberWithCipher -= 10;
+       }
+     }
+      if (currentLetter < 48 || currentLetter > 57 && currentLetter < 65 || currentLetter > 90 && currentLetter < 97 || currentLetter > 122) {
         numberWithCipher = currentLetter;
       }
       //la nueva letra  es igual a devolver el numero a caracter
@@ -79,7 +90,17 @@ window.cipher = {
           numberWithCipher -= 26;
         }
       }
-      if (currentLetter < 65 || currentLetter > 90 && currentLetter < 97|| currentLetter > 122) {
+      if (currentLetter >= 48 && currentLetter <= 57) {
+        offset %= 10;
+       numberWithCipher = currentLetter + offset;
+       if (numberWithCipher < 48) { 
+       numberWithCipher += 26;
+       }
+       if (numberWithCipher > 57) {
+         numberWithCipher -= 10;
+       }
+     }
+      if (currentLetter < 48 || currentLetter > 57 && currentLetter < 65 || currentLetter > 90 && currentLetter < 97 || currentLetter > 122) {
         numberWithCipher = currentLetter;
       }
       //la nueva letra  es igual a devolver el numero a caracter

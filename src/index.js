@@ -7,6 +7,9 @@ document.getElementById("offsetNumber2").style.display = "none";
 document.getElementById("messageSection2").style.display = "none";
 document.getElementById("messageOutArea2").style.display = "none";
 document.getElementById("messageOutArea").style.display = "none";
+document.getElementById("regresarAInicio").style.display = "none";
+document.getElementById("regresarAInicio2").style.display = "none";
+
 
 
 //Funciones de ventana de Cifrado
@@ -18,6 +21,7 @@ let encode = () => {
   let encodedMessage = window.cipher.encode(offset, message);
   //Arroja el mensaje 
    document.getElementById("messageOutput").innerHTML = encodedMessage;
+   document.getElementById("regresarAInicio").style.display = "block";
 };
 //Muestra la primer ventana donde está la opción de cifrar o descifrar
 let showCipherWindow = () => {
@@ -28,7 +32,10 @@ let showCipherWindow = () => {
   document.getElementById("cipherButton2").style.display = "block";
 };
 
-
+//refresca la página
+/*let refreshPage = () => {
+  window.location.href = window.location.href;
+};*/
 //Funciones de ventana de Descifrado
 let decode = () => {
   document.getElementById("messageOutArea2").style.display ="block";
@@ -37,6 +44,7 @@ let decode = () => {
   let decodedMessage = window.cipher.decode(offset, message);
   //Arroja el mensaje 
   document.getElementById("messageOutput2").innerHTML = decodedMessage;
+  document.getElementById("regresarAInicio2").style.display = "block";
 };
 //Muestra la primer ventana donde está la opción de cifrar o descifrar
 let showDecipherWindow = () => {
@@ -50,7 +58,6 @@ let showDecipherWindow = () => {
 document.getElementById("cipherButton").addEventListener("click",showCipherWindow);
 document.getElementById("decipherButton2").addEventListener("click",decode);
 document.getElementById("cipherButton2").addEventListener("click",encode);
-/*document.getElementById("cipherButton2").addEventListener("click",() => {
-  innerHTML = window.cipher.encode();
-})); */
 document.getElementById("decipherButton").addEventListener("click",showDecipherWindow);
+document.getElementById("regresarAInicio").addEventListener("click",refreshPage);
+//document.getElementById("regresarAInicio2").addEventListener("click",refreshPage);
