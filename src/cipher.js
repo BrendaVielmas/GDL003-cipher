@@ -11,40 +11,66 @@ window.cipher = {
       /*El numero de la letra con cipher es igual al numero de la letra más el desplazamiento 
       agregado. Si es mayor a 256 el desplazamiento, se suma el residuo de 256*/
       let numberWithCipher ="";
-      
+      //sección de mayúsculas
+      let longitudMayusculas = 90 - 65 + 1;
       if (currentLetter >= 65 && currentLetter <= 90) {
-        offset %= 26;
+        offset %= longitudMayusculas;
         numberWithCipher = currentLetter + offset;
         if (numberWithCipher < 65) {
-          numberWithCipher += 26;
+          numberWithCipher += longitudMayusculas;
         }
         if (numberWithCipher > 90) {
-          numberWithCipher -= 26;
+          numberWithCipher -= longitudMayusculas;
         }
       }
+      //sección de minúsculas
+      let longitudMinusculas = 122 - 97 + 1;
       if (currentLetter >= 97 && currentLetter <= 122) {
-         offset %= 26;
+         offset %= longitudMinusculas;
         numberWithCipher = currentLetter + offset;
         if (numberWithCipher < 97) { 
-          numberWithCipher += 26;
+          numberWithCipher += longitudMinusculas;
         }
         if (numberWithCipher > 122) {
-          numberWithCipher -= 26;
+          numberWithCipher -= longitudMinusculas;
         }
       }
-      if (currentLetter >= 48 && currentLetter <= 57) {
-        offset %= 10;
+      //sección de simbolos parte 1
+      let longitudSimbolos = 64 - 32 + 1;
+      if (currentLetter >= 32 && currentLetter <= 64) {
+        offset %= longitudSimbolos;
        numberWithCipher = currentLetter + offset;
-       if (numberWithCipher < 48) { 
-         numberWithCipher += 10;
+       if (numberWithCipher < 32) { 
+         numberWithCipher += longitudSimbolos;
        }
-       if (numberWithCipher > 57) {
-         numberWithCipher -= 10;
+       if (numberWithCipher > 64) {
+         numberWithCipher -= longitudSimbolos;
        }
      }
-      if (currentLetter < 48 || currentLetter > 57 && currentLetter < 65 || currentLetter > 90 && currentLetter < 97 || currentLetter > 122) {
-        numberWithCipher = currentLetter;
-      }
+     //sección de simbolos parte 2
+      let longitudSimbolos2 = 126 - 123 + 1;
+     if (currentLetter >= 123 && currentLetter <= 126) {
+        offset %= longitudSimbolos2;
+       numberWithCipher = currentLetter + offset;
+       if (numberWithCipher < 123) { 
+         numberWithCipher += longitudSimbolos2;
+       }
+       if (numberWithCipher > 126) {
+         numberWithCipher -= longitudSimbolos2;
+       }
+     }
+      //sección de simbolos parte 3
+      let longitudSimbolos3 = 254 - 128 + 1;
+      if (currentLetter >= 128 && currentLetter <= 254) {
+        offset %= longitudSimbolos3;
+       numberWithCipher = currentLetter + offset;
+       if (numberWithCipher < 128) { 
+         numberWithCipher += longitudSimbolos3;
+       }
+       if (numberWithCipher > 254) {
+         numberWithCipher -= longitudSimbolos3;
+       }
+     }
       //la nueva letra  es igual a devolver el numero a caracter
       newLetter = String.fromCharCode(numberWithCipher);
       //Arroja el mensaje 
@@ -70,39 +96,66 @@ window.cipher = {
       agregado. Si es mayor a 256 el desplazamiento, se suma el residuo de 256*/
 
       let numberWithCipher ="";
+       //sección de mayúsculas
+      let longitudMayusculas = 90 - 65 + 1;
       if (currentLetter >= 65 && currentLetter <= 90) {
-        offset %= 26;
+        offset %= longitudMayusculas;
         numberWithCipher = currentLetter + offset;
         if (numberWithCipher < 65) {
-          numberWithCipher += 26;
+          numberWithCipher += longitudMayusculas;
         }
         if (numberWithCipher > 90) {
-          numberWithCipher -= 26;
+          numberWithCipher -= longitudMayusculas;
         }
       }
+      //sección de minúsculas
+      let longitudMinusculas = 122 - 97 + 1;
       if (currentLetter >= 97 && currentLetter <= 122) {
-         offset %= 26;
+         offset %= longitudMinusculas;
         numberWithCipher = currentLetter + offset;
         if (numberWithCipher < 97) { 
-        numberWithCipher += 26;
+          numberWithCipher += longitudMinusculas;
         }
         if (numberWithCipher > 122) {
-          numberWithCipher -= 26;
+          numberWithCipher -= longitudMinusculas;
         }
       }
-      if (currentLetter >= 48 && currentLetter <= 57) {
-        offset %= 10;
+      //sección de simbolos parte 1
+      let longitudSimbolos = 64 - 32 + 1;
+      if (currentLetter >= 32 && currentLetter <= 64) {
+        offset %= longitudSimbolos;
        numberWithCipher = currentLetter + offset;
-       if (numberWithCipher < 48) { 
-       numberWithCipher += 26;
+       if (numberWithCipher < 32) { 
+         numberWithCipher += longitudSimbolos;
        }
-       if (numberWithCipher > 57) {
-         numberWithCipher -= 10;
+       if (numberWithCipher > 64) {
+         numberWithCipher -= longitudSimbolos;
        }
      }
-      if (currentLetter < 48 || currentLetter > 57 && currentLetter < 65 || currentLetter > 90 && currentLetter < 97 || currentLetter > 122) {
-        numberWithCipher = currentLetter;
-      }
+     //sección de simbolos parte 2
+      let longitudSimbolos2 = 126 - 123 + 1;
+     if (currentLetter >= 123 && currentLetter <= 126) {
+        offset %= longitudSimbolos2;
+       numberWithCipher = currentLetter + offset;
+       if (numberWithCipher < 123) { 
+         numberWithCipher += longitudSimbolos2;
+       }
+       if (numberWithCipher > 126) {
+         numberWithCipher -= longitudSimbolos2;
+       }
+     }
+      //sección de simbolos parte 3
+      let longitudSimbolos3 = 254 - 128 + 1;
+      if (currentLetter >= 128 && currentLetter <= 254) {
+        offset %= longitudSimbolos3;
+       numberWithCipher = currentLetter + offset;
+       if (numberWithCipher < 128) { 
+         numberWithCipher += longitudSimbolos3;
+       }
+       if (numberWithCipher > 254) {
+         numberWithCipher -= longitudSimbolos3;
+       }
+     }
       //la nueva letra  es igual a devolver el numero a caracter
       newLetter = String.fromCharCode(numberWithCipher);
       //Arroja el mensaje 

@@ -59,5 +59,3 @@ document.getElementById("cipherButton").addEventListener("click",showCipherWindo
 document.getElementById("decipherButton2").addEventListener("click",decode);
 document.getElementById("cipherButton2").addEventListener("click",encode);
 document.getElementById("decipherButton").addEventListener("click",showDecipherWindow);
-document.getElementById("regresarAInicio").addEventListener("click",refreshPage);
-//document.getElementById("regresarAInicio2").addEventListener("click",refreshPage);

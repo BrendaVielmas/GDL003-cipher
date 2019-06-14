@@ -35,8 +35,20 @@ describe('cipher', () => {
     // Si decides implementar soporte para caracteres no alfabéticos descomenta
     // el test a continuación.
     //
-    it('debería retornar " !@" para " !@"', () => {
-      assert.equal(cipher.encode(33, ' !@'),' !@');
+    it('debería retornar "*+)" para " !@" con offset 10', () => {
+      assert.equal(cipher.encode(10, ' !@'),'*+)');
+    });
+    // Hacker edition encode offset negativo simbolos
+    it('debería retornar "786" para " !@" con offset -10', () => {
+      assert.equal(cipher.encode(-10, ' !@'),'786');
+    });
+    // Hacker edition 2
+    it('debería retornar "ëûóÛ" para "áñéÑ" con offset 10', () => {
+      assert.equal(cipher.encode(10, 'áñéÑ'),'ëûóÛ');
+    });
+    // Hacker edition encode offset negativo simbolos2
+    it('debería retornar "×çßÇ" para "áñéÑ" con offset -10', () => {
+      assert.equal(cipher.encode(-10, 'áñéÑ'),'×çßÇ');
     });
   });
 
@@ -72,8 +84,20 @@ describe('cipher', () => {
     // Si decides implementar soporte para caracteres no alfabéticos descomenta
     // el test a continuación.
     //
-    it('debería retornar " !@" para " !@"', () => {
-      assert.equal(cipher.decode(33, ' !@'),' !@');
+    it('debería retornar " !@" para "*+)" con offset 10', () => {
+      assert.equal(cipher.decode(10, '*+)'),' !@');
+    });
+    // Hacker edition decode offset negativo simbolos
+     it('debería retornar "453" para "*+)" con offset -10', () => {
+      assert.equal(cipher.decode(-10, '*+)'),'453');
+    });
+    // Hacker edition 2
+    it('debería retornar "áñéÑ" para "ëûóÛ" con offset 10', () => {
+      assert.equal(cipher.decode(10, 'ëûóÛ'),'áñéÑ');
+    });
+     // Hacker edition decode offset negativo simbolos2
+     it('debería retornar "áñéÑ" para "×çßÇ" con offset -10', () => {
+      assert.equal(cipher.decode(-10, '×çßÇ'),'áñéÑ');
     });
   });
 
